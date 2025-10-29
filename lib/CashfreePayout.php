@@ -52,7 +52,7 @@ class PayoutWebhookEvent
     } 
 }
 
-class Cashfree {
+class CashfreePayout {
 
     protected $client;
     protected $headerSelector;
