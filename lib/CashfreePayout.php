@@ -68,7 +68,7 @@ class CashfreePayout {
 
     public function PayoutVerifyWebhookSignature($signature, $rawBody, $timestamp) {
         $body = $timestamp . $rawBody;
-        $secretKey = Cashfree::$XClientSecret;
+        $secretKey = CashfreePayout::$XClientSecret;
         $genSignature = hash_hmac('sha256', $body, $secretKey, true);
         $genSignatureBase64 = base64_encode($genSignature);
         if($genSignatureBase64 == $signature) {
@@ -108,10 +108,10 @@ class CashfreePayout {
     {
 
         $env = "sandbox";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $env = "production";
         }
-        if(Cashfree::$XEnableErrorAnalytics) {
+        if(CashfreePayout::$XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://22dc3de52807f3d61e5f581c2005d7b0@o330525.ingest.us.sentry.io/4506869802008576',
                 'environment' => $env."PayoutCreateBeneficiary",
@@ -128,7 +128,7 @@ class CashfreePayout {
                         $osContext->setKernelVersion("");
                         $osContext->setVersion("");
                         $event->setOsContext($osContext);
-                        if(Cashfree::$XEnableErrorAnalytics) {
+                        if(CashfreePayout::$XEnableErrorAnalytics) {
                             return $event;
                         }
                         return null;
@@ -352,13 +352,13 @@ class CashfreePayout {
 
         $headers['x-sdk-platform'] = "phpsdk-0.0.11";
 
-        if (Cashfree::$XClientSecret !== null) {
-            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        if (CashfreePayout::$XClientSecret !== null) {
+            $headers['x-client-secret'] = CashfreePayout::$XClientSecret;
         }
 
 
-        if (Cashfree::$XClientId !== null) {
-            $headers['x-client-id'] = Cashfree::$XClientId;
+        if (CashfreePayout::$XClientId !== null) {
+            $headers['x-client-id'] = CashfreePayout::$XClientId;
         }
 
         $headers['x-api-version'] = $x_api_version;
@@ -409,7 +409,7 @@ class CashfreePayout {
         );
 
         $operationHost = "https://sandbox.cashfree.com/payout";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $operationHost = "https://api.cashfree.com/payout";
         }
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -426,10 +426,10 @@ class CashfreePayout {
     {
 
         $env = "sandbox";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $env = "production";
         }
-        if(Cashfree::$XEnableErrorAnalytics) {
+        if(CashfreePayout::$XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://22dc3de52807f3d61e5f581c2005d7b0@o330525.ingest.us.sentry.io/4506869802008576',
                 'environment' => $env."PayoutDeleteBeneficiary",
@@ -446,7 +446,7 @@ class CashfreePayout {
                         $osContext->setKernelVersion("");
                         $osContext->setVersion("");
                         $event->setOsContext($osContext);
-                        if(Cashfree::$XEnableErrorAnalytics) {
+                        if(CashfreePayout::$XEnableErrorAnalytics) {
                             return $event;
                         }
                         return null;
@@ -682,13 +682,13 @@ class CashfreePayout {
 
         $headers['x-sdk-platform'] = "phpsdk-0.0.11";
 
-        if (Cashfree::$XClientSecret !== null) {
-            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        if (CashfreePayout::$XClientSecret !== null) {
+            $headers['x-client-secret'] = CashfreePayout::$XClientSecret;
         }
 
 
-        if (Cashfree::$XClientId !== null) {
-            $headers['x-client-id'] = Cashfree::$XClientId;
+        if (CashfreePayout::$XClientId !== null) {
+            $headers['x-client-id'] = CashfreePayout::$XClientId;
         }
 
         $headers['x-api-version'] = $x_api_version;
@@ -732,7 +732,7 @@ class CashfreePayout {
         );
 
         $operationHost = "https://sandbox.cashfree.com/payout";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $operationHost = "https://api.cashfree.com/payout";
         }
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -749,10 +749,10 @@ class CashfreePayout {
     {
 
         $env = "sandbox";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $env = "production";
         }
-        if(Cashfree::$XEnableErrorAnalytics) {
+        if(CashfreePayout::$XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://22dc3de52807f3d61e5f581c2005d7b0@o330525.ingest.us.sentry.io/4506869802008576',
                 'environment' => $env."PayoutFetchBeneficiary",
@@ -769,7 +769,7 @@ class CashfreePayout {
                         $osContext->setKernelVersion("");
                         $osContext->setVersion("");
                         $event->setOsContext($osContext);
-                        if(Cashfree::$XEnableErrorAnalytics) {
+                        if(CashfreePayout::$XEnableErrorAnalytics) {
                             return $event;
                         }
                         return null;
@@ -1037,13 +1037,13 @@ class CashfreePayout {
 
         $headers['x-sdk-platform'] = "phpsdk-0.0.11";
 
-        if (Cashfree::$XClientSecret !== null) {
-            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        if (CashfreePayout::$XClientSecret !== null) {
+            $headers['x-client-secret'] = CashfreePayout::$XClientSecret;
         }
 
 
-        if (Cashfree::$XClientId !== null) {
-            $headers['x-client-id'] = Cashfree::$XClientId;
+        if (CashfreePayout::$XClientId !== null) {
+            $headers['x-client-id'] = CashfreePayout::$XClientId;
         }
 
         $headers['x-api-version'] = $x_api_version;
@@ -1087,7 +1087,7 @@ class CashfreePayout {
         );
 
         $operationHost = "https://sandbox.cashfree.com/payout";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $operationHost = "https://api.cashfree.com/payout";
         }
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -1104,10 +1104,10 @@ class CashfreePayout {
     {
 
         $env = "sandbox";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $env = "production";
         }
-        if(Cashfree::$XEnableErrorAnalytics) {
+        if(CashfreePayout::$XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://22dc3de52807f3d61e5f581c2005d7b0@o330525.ingest.us.sentry.io/4506869802008576',
                 'environment' => $env."PayoutFetchBatchTransfer",
@@ -1124,7 +1124,7 @@ class CashfreePayout {
                         $osContext->setKernelVersion("");
                         $osContext->setVersion("");
                         $event->setOsContext($osContext);
-                        if(Cashfree::$XEnableErrorAnalytics) {
+                        if(CashfreePayout::$XEnableErrorAnalytics) {
                             return $event;
                         }
                         return null;
@@ -1321,13 +1321,13 @@ class CashfreePayout {
 
         $headers['x-sdk-platform'] = "phpsdk-0.0.11";
 
-        if (Cashfree::$XClientSecret !== null) {
-            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        if (CashfreePayout::$XClientSecret !== null) {
+            $headers['x-client-secret'] = CashfreePayout::$XClientSecret;
         }
 
 
-        if (Cashfree::$XClientId !== null) {
-            $headers['x-client-id'] = Cashfree::$XClientId;
+        if (CashfreePayout::$XClientId !== null) {
+            $headers['x-client-id'] = CashfreePayout::$XClientId;
         }
 
         $headers['x-api-version'] = $x_api_version;
@@ -1371,7 +1371,7 @@ class CashfreePayout {
         );
 
         $operationHost = "https://sandbox.cashfree.com/payout";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $operationHost = "https://api.cashfree.com/payout";
         }
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -1388,10 +1388,10 @@ class CashfreePayout {
     {
 
         $env = "sandbox";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $env = "production";
         }
-        if(Cashfree::$XEnableErrorAnalytics) {
+        if(CashfreePayout::$XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://22dc3de52807f3d61e5f581c2005d7b0@o330525.ingest.us.sentry.io/4506869802008576',
                 'environment' => $env."PayoutFetchTransfer",
@@ -1408,7 +1408,7 @@ class CashfreePayout {
                         $osContext->setKernelVersion("");
                         $osContext->setVersion("");
                         $event->setOsContext($osContext);
-                        if(Cashfree::$XEnableErrorAnalytics) {
+                        if(CashfreePayout::$XEnableErrorAnalytics) {
                             return $event;
                         }
                         return null;
@@ -1628,13 +1628,13 @@ class CashfreePayout {
 
         $headers['x-sdk-platform'] = "phpsdk-0.0.11";
 
-        if (Cashfree::$XClientSecret !== null) {
-            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        if (CashfreePayout::$XClientSecret !== null) {
+            $headers['x-client-secret'] = CashfreePayout::$XClientSecret;
         }
 
 
-        if (Cashfree::$XClientId !== null) {
-            $headers['x-client-id'] = Cashfree::$XClientId;
+        if (CashfreePayout::$XClientId !== null) {
+            $headers['x-client-id'] = CashfreePayout::$XClientId;
         }
 
         $headers['x-api-version'] = $x_api_version;
@@ -1678,7 +1678,7 @@ class CashfreePayout {
         );
 
         $operationHost = "https://sandbox.cashfree.com/payout";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $operationHost = "https://api.cashfree.com/payout";
         }
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -1695,10 +1695,10 @@ class CashfreePayout {
     {
 
         $env = "sandbox";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $env = "production";
         }
-        if(Cashfree::$XEnableErrorAnalytics) {
+        if(CashfreePayout::$XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://22dc3de52807f3d61e5f581c2005d7b0@o330525.ingest.us.sentry.io/4506869802008576',
                 'environment' => $env."PayoutInitiateBatchTransfer",
@@ -1715,7 +1715,7 @@ class CashfreePayout {
                         $osContext->setKernelVersion("");
                         $osContext->setVersion("");
                         $event->setOsContext($osContext);
-                        if(Cashfree::$XEnableErrorAnalytics) {
+                        if(CashfreePayout::$XEnableErrorAnalytics) {
                             return $event;
                         }
                         return null;
@@ -1916,13 +1916,13 @@ class CashfreePayout {
 
         $headers['x-sdk-platform'] = "phpsdk-0.0.11";
 
-        if (Cashfree::$XClientSecret !== null) {
-            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        if (CashfreePayout::$XClientSecret !== null) {
+            $headers['x-client-secret'] = CashfreePayout::$XClientSecret;
         }
 
 
-        if (Cashfree::$XClientId !== null) {
-            $headers['x-client-id'] = Cashfree::$XClientId;
+        if (CashfreePayout::$XClientId !== null) {
+            $headers['x-client-id'] = CashfreePayout::$XClientId;
         }
 
         $headers['x-api-version'] = $x_api_version;
@@ -1973,7 +1973,7 @@ class CashfreePayout {
         );
 
         $operationHost = "https://sandbox.cashfree.com/payout";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $operationHost = "https://api.cashfree.com/payout";
         }
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -1990,10 +1990,10 @@ class CashfreePayout {
     {
 
         $env = "sandbox";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $env = "production";
         }
-        if(Cashfree::$XEnableErrorAnalytics) {
+        if(CashfreePayout::$XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://22dc3de52807f3d61e5f581c2005d7b0@o330525.ingest.us.sentry.io/4506869802008576',
                 'environment' => $env."PayoutInitiateTransfer",
@@ -2010,7 +2010,7 @@ class CashfreePayout {
                         $osContext->setKernelVersion("");
                         $osContext->setVersion("");
                         $event->setOsContext($osContext);
-                        if(Cashfree::$XEnableErrorAnalytics) {
+                        if(CashfreePayout::$XEnableErrorAnalytics) {
                             return $event;
                         }
                         return null;
@@ -2234,13 +2234,13 @@ class CashfreePayout {
 
         $headers['x-sdk-platform'] = "phpsdk-0.0.11";
 
-        if (Cashfree::$XClientSecret !== null) {
-            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        if (CashfreePayout::$XClientSecret !== null) {
+            $headers['x-client-secret'] = CashfreePayout::$XClientSecret;
         }
 
 
-        if (Cashfree::$XClientId !== null) {
-            $headers['x-client-id'] = Cashfree::$XClientId;
+        if (CashfreePayout::$XClientId !== null) {
+            $headers['x-client-id'] = CashfreePayout::$XClientId;
         }
 
         $headers['x-api-version'] = $x_api_version;
@@ -2291,7 +2291,7 @@ class CashfreePayout {
         );
 
         $operationHost = "https://sandbox.cashfree.com/payout";
-        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+        if(CashfreePayout::$XEnvironment == CashfreePayout::$PRODUCTION) {
             $operationHost = "https://api.cashfree.com/payout";
         }
         $query = ObjectSerializer::buildQuery($queryParams);
